@@ -1,6 +1,7 @@
 ﻿using FluentMappingApi.Data;
 using FluentMappingApi.Models;
 using FluentMappingApi.Models.ViewModels;
+using FluentMappingApi.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -18,34 +19,37 @@ namespace FluentMappingApi.Controllers
         [HttpGet("v1/statusativoinativo")]
         public async Task<ActionResult> GetAsync()
         {
+            if (!ModelState.IsValid)
+                return BadRequest();
+
             try
             {
                 var status = await _contextApp.StatusAtivosInativos.ToListAsync();
                 if (status == null)
-                    return NotFound();
-                return Ok(status);
+                    return NotFound(new ResultViewModel<StatusAtivoInativo>("Nada encontrado!"));
+                return Ok(new ResultViewModel<List<StatusAtivoInativo>>(status));
             }
             catch (Exception)
             {
 
-                return StatusCode(500, "Códido de erro: 01X01 - Erro ao tentar buscar os dados!");
+                return StatusCode(500, new ResultViewModel<List<StatusAtivoInativo>>( "Códido de erro: 01X01 - Erro ao tentar buscar os dados!"));
             }
         }
         [HttpGet("/v1/statusativoinativo/{id:int}")]
         public async Task<IActionResult> GetByIdAsync([FromRoute] int id)
         {
-                try
-                {
-                    var tipo = await _contextApp.StatusAtivosInativos.FirstOrDefaultAsync(x => x.Id == id);
-                    if (tipo == null)
-                        return NotFound();
-                    return Ok(tipo);
-                }
-                catch (Exception)
-                {
+            try
+            {
+                var tipo = await _contextApp.StatusAtivosInativos.FirstOrDefaultAsync(x => x.Id == id);
+                if (tipo == null)
+                    return NotFound();
+                return Ok(new ResultViewModel<StatusAtivoInativo>(tipo));
+            }
+            catch (Exception)
+            {
 
-                    return StatusCode(500, "Códido de erro: 01X02 - Erro ao tentar buscar os dados pelo Id informado!");
-                }
+                return StatusCode(500, new ResultViewModel<StatusAtivoInativo>("Códido de erro: 01X02 - Erro ao tentar buscar os dados pelo Id informado!"));
+            }
 
         }
         [HttpPost("/v1/statusativoinativo")]
@@ -55,15 +59,15 @@ namespace FluentMappingApi.Controllers
             {
                 var status = new StatusAtivoInativo();
                 status.Descricao = model.Descricao;
-                    await _contextApp.StatusAtivosInativos.AddAsync(status);
+                await _contextApp.StatusAtivosInativos.AddAsync(status);
                 await _contextApp.SaveChangesAsync();
-                return Created($"v1/statusativoinativo/{status.Id}", status);
+                return Ok(new ResultViewModel<StatusAtivoInativo>(status));
             }
             catch (Exception)
             {
 
 
-                return StatusCode(500, "Códido de erro: 01X03 - Erro ao tentar salvar!");
+                return StatusCode(500, new ResultViewModel<StatusAtivoInativo>("Códido de erro: 01X03 - Erro ao tentar salvar!"));
             }
 
         }
@@ -78,12 +82,12 @@ namespace FluentMappingApi.Controllers
                 status.Descricao = model.Descricao;
                 _contextApp.StatusAtivosInativos.Update(status);
                 await _contextApp.SaveChangesAsync();
-                return Ok(status);
+                return Ok(new ResultViewModel<StatusAtivoInativo>(status));
             }
             catch (Exception)
             {
 
-                return StatusCode(500, "Códido de erro: 01X04 - Erro ao tentar atualizar!");
+                return StatusCode(500, new ResultViewModel<StatusAtivoInativo>("Códido de erro: 01X04 - Erro ao tentar atualizar!"));
             }
 
         }
@@ -98,12 +102,12 @@ namespace FluentMappingApi.Controllers
                 _contextApp.StatusAtivosInativos.Remove(status);
                 await _contextApp.SaveChangesAsync();
 
-                return Ok(status);
+                return Ok(new ResultViewModel<StatusAtivoInativo>(status));
             }
             catch (Exception)
             {
 
-                return StatusCode(500, "Códido de erro: 01X05 - Erro ao tentar deletar");
+                return StatusCode(500, new ResultViewModel<StatusAtivoInativo>("Códido de erro: 01X05 - Erro ao tentar deletar"));
             }
 
         }

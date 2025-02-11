@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FluentMappingApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6519e0899f5bd2ae6e96a8515b24c03fa8799352")]
 [assembly: System.Reflection.AssemblyProductAttribute("FluentMappingApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FluentMappingApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

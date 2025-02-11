@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "v4cgSkshIBVAv2+lvOUjqSeqgRTU0K0VKht/pavyMyYsgxZ2snKEsckhMyY37ptAZkD/iM3n95k1OawRIPNzkQ==",
+  "dgSpecHash": "iNAw8bebetfDzFFcoOHIj9oCyu0eTTQDIlUqnF4P2oMw6WUd4V2NWXu58uZ95dT4U7Ah5pzHUtxFWZQYTvP4MA==",
   "success": true,
-  "projectFilePath": "C:\\Projetos\\FluentMappingApi\\FluentMappingApi.csproj",
+  "projectFilePath": "C:\\Users\\gabri\\Source\\Repos\\FluentApi\\FluentMappingApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\gabri\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\gabri\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

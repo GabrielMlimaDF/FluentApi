@@ -4740,11 +4740,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Projetos\\FluentMappingApi\\FluentMappingApi.csproj",
+      "projectUniqueName": "C:\\Users\\gabri\\Source\\Repos\\FluentApi\\FluentMappingApi.csproj",
       "projectName": "FluentMappingApi",
-      "projectPath": "C:\\Projetos\\FluentMappingApi\\FluentMappingApi.csproj",
+      "projectPath": "C:\\Users\\gabri\\Source\\Repos\\FluentApi\\FluentMappingApi.csproj",
       "packagesPath": "C:\\Users\\gabri\\.nuget\\packages\\",
-      "outputPath": "C:\\Projetos\\FluentMappingApi\\obj\\",
+      "outputPath": "C:\\Users\\gabri\\Source\\Repos\\FluentApi\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\gabri\\AppData\\Roaming\\NuGet\\NuGet.Config",
